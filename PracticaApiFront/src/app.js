@@ -87,7 +87,12 @@ const buttonMostrarUsuario = document.getElementById("botonMostrarUsuario");
 const fragment = document.createDocumentFragment();
 
 buttonMostrarUsuario.addEventListener("click", (e)=> {
-    
+    getUsuarios();
+});
+
+
+// Funcion que contiene el metodo get para traer todos los usuarios
+function getUsuarios(){
     let settings = {
         method: "GET",
         headers: {
@@ -105,11 +110,9 @@ buttonMostrarUsuario.addEventListener("click", (e)=> {
     .catch(error => {
         return error;
     })
+};
 
-
-})
-
-
+// Funcion que contiene la logica de imprimir en el html las tarjetas de usuarios que trae la peticion get 
 function imprimirUsuarios(data){
     contenedor.innerHTML = "";
     

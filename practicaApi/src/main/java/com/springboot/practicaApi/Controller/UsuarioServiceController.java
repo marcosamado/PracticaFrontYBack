@@ -28,5 +28,10 @@ public class UsuarioServiceController {
     }
 
 
+    @CrossOrigin
+    @DeleteMapping(path = "{id}")
+    public void eliminarPorId(@PathVariable("id") Integer id) {
+        usuarioService.eliminarUsuario(id);
+    }
 
 }

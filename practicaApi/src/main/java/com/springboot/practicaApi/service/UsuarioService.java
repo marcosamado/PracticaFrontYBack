@@ -27,6 +27,11 @@ public class UsuarioService {
     }
 
 
+    public void eliminarUsuario(Integer id) {
+        UsuarioRepository.deleteById(id);
+    }
+
+
 //    public ArrayList<Usuario> mostrarUsuario(){
 //        //1.- LEVANTAR EL DRIVER Y CONECTARNOS
 //
