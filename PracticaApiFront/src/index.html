@@ -36,7 +36,6 @@
         <section class="flex flex-col container mt-20 ml-auto mr-auto w-2/3">
             <button id="botonMostrarUsuario" class="p-2 w-auto h-auto rounded-md hover:bg-blue-800 bg-blue-950 mt-5 text-pink-100 ml-auto mr-auto">Mostrar Usuarios</button>
             <div id="contenedor-items" class="conteiner flex flex-row w-auto h-auto flex-wrap">
-                </article>
             </div>
             <!-- TEMPLATES -->
             <template id="items">
@@ -45,9 +44,16 @@
                     <p id="nombreUsuario" class="text-center text-yellow-400"><span class="text-pink-100">NOMBRE </span></p>
                     <p id="apellidoUsuario" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span></p>
                     <div class="container flex flex-row-reverse">
-                        <button class="w-auto h-auto bg-slate-300 rounded-md p-2 m-3 align-middle text-sm">Eliminar</button>
+                        <button class="btn w-auto h-auto bg-slate-300 rounded-md p-2 m-3 align-middle text-sm">Eliminar</button>
                         <button class="w-auto h-auto bg-slate-300 rounded-md p-2 m-3 align-middle text-sm">Modificar</button>
                     </div>
+                </article>
+            </template>
+            <template id="no-items">
+                <article>
+                    <p>
+                        NO HAY USUARIOS EN LA BASE DE DATOS
+                    </p>
                 </article>
             </template>
         </section>

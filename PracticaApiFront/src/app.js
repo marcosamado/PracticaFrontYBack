@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                        // LOGICA DE MENU DESPLEGABLE                       */
 /* -------------------------------------------------------------------------- */
-
+window.addEventListener('load', function () {
 const formAgregar = document.getElementById("formAgregar");
 const spanAgregar = document.getElementById("spanAgregar");
 const buttonAgregar = document.getElementById("buttonAgregar");
@@ -73,6 +73,7 @@ formAgregar.addEventListener("submit", (event) => {
         timer: 1500
     })
 
+    contenedor.innerHTML = "";
     formAgregar.reset();
 });
 
@@ -83,6 +84,7 @@ formAgregar.addEventListener("submit", (event) => {
 
 const contenedor = document.getElementById("contenedor-items");
 const templateItems = document.getElementById("items").content;
+const templateNoItems = document.getElementById("no-items").content;
 const buttonMostrarUsuario = document.getElementById("botonMostrarUsuario");
 const fragment = document.createDocumentFragment();
 
@@ -140,18 +142,64 @@ function imprimirUsuarios(data){
     })
 
     setTimeout(()=> {
-        data.forEach(user => {
-            templateItems.getElementById("id").innerHTML = `<p id="id" class="text-center text-yellow-400"><span class="text-start text-pink-100">ID </span>${user.id}</p>`
-            templateItems.getElementById("nombreUsuario").innerHTML = `<p id="nombreUsuario" class="text-center text-yellow-400"><span class="text-pink-100">NOMBRE </span>${user.nombre}</p>`
-            templateItems.getElementById("apellidoUsuario").innerHTML = `<p id="apellidoUsuario" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span>${user.apellido}</p>`
-            let clone = templateItems.cloneNode(true);
+        console.log(data.length);
+        if(data.length === 0){
+            templateNoItems.querySelector("p").textContent;
+            let clone = templateNoItems.cloneNode(true);
             fragment.appendChild(clone);
-        });
+        }else{ 
+                data.forEach(user => {
+                templateItems.getElementById("id").innerHTML = `<p id="id" class="text-center text-yellow-400"><span class="text-start text-pink-100">ID </span>${user.id}</p>`
+                templateItems.getElementById("nombreUsuario").innerHTML = `<p id="nombreUsuario" class="text-center text-yellow-400"><span class="text-pink-100">NOMBRE </span>${user.nombre}</p>`
+                templateItems.getElementById("apellidoUsuario").innerHTML = `<p id="apellidoUsuario" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span>${user.apellido}</p>`
+                templateItems.querySelector(".btn").dataset.id = user.id;
+                let clone = templateItems.cloneNode(true);
+                fragment.appendChild(clone);
+            });
+        }
         contenedor.appendChild(fragment);
     },2000);
 
 }
 
+/* -------------------------------------------------------------------------- */
+/*                               ELIMINAR POR ID                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+function deleteUsuarios(){
+    contenedor.addEventListener("click", (e) => {
+        e.stopImmediatePropagation();
+    
+        if(e.target.classList.contains("btn")){
+            let idUsuario = e.target.dataset.id;
+            
+            let settings = {
+                method: "DELETE",
+                headers: {
+                    "Content-type": "application/json"
+                }
+            };
+        
+            fetch(`http://localhost:8080/usuarios/${idUsuario}`, settings)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                
+            })
+            .catch(error => {
+                return error;
+            })
+        }
+        getUsuarios();
+    });
+}
+deleteUsuarios();
+});
 
 
 
