@@ -13,13 +13,16 @@ public class Usuario {
     private String nombre;
     @Column
     private String apellido;
+    @Column
+    private String dni;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido) {
+    public Usuario(String nombre, String apellido, String dni) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.dni = dni;
     }
 
     public Integer getId() {
@@ -44,6 +47,14 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     @Override

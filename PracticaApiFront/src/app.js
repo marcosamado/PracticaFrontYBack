@@ -36,6 +36,7 @@ buttonAgregar.addEventListener("click", (e)=> {
 
 const usuario = document.getElementById("usuario");
 const apellido = document.getElementById("apellido");
+const dni = document.getElementById("documento");
 
 
 formAgregar.addEventListener("submit", (event) => {
@@ -43,7 +44,8 @@ formAgregar.addEventListener("submit", (event) => {
 
     let payLoad = {
         nombre: usuario.value,
-        apellido: apellido.value
+        apellido: apellido.value,
+        dni: dni.value
     };
 
     let settings = {
@@ -142,7 +144,6 @@ function imprimirUsuarios(data){
     })
 
     setTimeout(()=> {
-        console.log(data.length);
         if(data.length === 0){
             templateNoItems.querySelector("p").textContent;
             let clone = templateNoItems.cloneNode(true);
@@ -194,8 +195,8 @@ function deleteUsuarios(){
             .catch(error => {
                 return error;
             })
+            getUsuarios();
         }
-        getUsuarios();
     });
 }
 deleteUsuarios();

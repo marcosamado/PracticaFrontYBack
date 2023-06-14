@@ -1,5 +1,6 @@
 package com.springboot.practicaApi.Controller;
 
+import com.springboot.practicaApi.Dto.UsuarioDto;
 import com.springboot.practicaApi.Entity.Usuario;
 import com.springboot.practicaApi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class UsuarioServiceController {
 
     @CrossOrigin
     @GetMapping
-    public List<Usuario> mostrarUsuarios(){
+    public List<UsuarioDto> mostrarUsuarios(){
         return usuarioService.mostrarUsuarios();
     }
 
