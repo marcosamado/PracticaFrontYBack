@@ -187,15 +187,12 @@ function deleteUsuarios(){
         
             fetch(`http://localhost:8080/usuarios/${idUsuario}`, settings)
             .then(response => {
+                getUsuarios();
                 return response.json();
-            })
-            .then(data => {
-                
             })
             .catch(error => {
                 return error;
             })
-            getUsuarios();
         }
     });
 }
