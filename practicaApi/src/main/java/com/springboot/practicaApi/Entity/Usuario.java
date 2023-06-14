@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -15,6 +16,10 @@ public class Usuario {
     private String apellido;
     @Column
     private String dni;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_direccion", referencedColumnName = "id")
+    private Domicilio domicilio;
 
     public Usuario() {
     }
@@ -55,6 +60,14 @@ public class Usuario {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
     }
 
     @Override
