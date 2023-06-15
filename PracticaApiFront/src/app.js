@@ -6,9 +6,9 @@ const formAgregar = document.getElementById("formAgregar");
 const spanAgregar = document.getElementById("spanAgregar");
 const buttonAgregar = document.getElementById("buttonAgregar");
 
-const formActualizar = document.getElementById("formActualizar");
-const spanActualizar = document.getElementById("spanActualizar");
-const buttonActualizar = document.getElementById("buttonActualizar");
+// const formActualizar = document.getElementById("formActualizar");
+// const spanActualizar = document.getElementById("spanActualizar");
+// const buttonActualizar = document.getElementById("buttonActualizar");
 
 
 buttonAgregar.addEventListener("click", (e)=> {
@@ -37,6 +37,9 @@ buttonAgregar.addEventListener("click", (e)=> {
 const usuario = document.getElementById("usuario");
 const apellido = document.getElementById("apellido");
 const dni = document.getElementById("documento");
+const calle = document.getElementById("calle");
+const localidad = document.getElementById("localidad");
+const ciudad = document.getElementById("ciudad");
 
 
 formAgregar.addEventListener("submit", (event) => {
@@ -45,7 +48,12 @@ formAgregar.addEventListener("submit", (event) => {
     let payLoad = {
         nombre: usuario.value,
         apellido: apellido.value,
-        dni: dni.value
+        dni: dni.value,
+        domicilio: {
+            calle: calle.value,
+            localidad: localidad.value,
+            ciudad: ciudad.value
+        }
     };
 
     let settings = {
@@ -150,9 +158,11 @@ function imprimirUsuarios(data){
             fragment.appendChild(clone);
         }else{ 
                 data.forEach(user => {
+                console.log(user);
                 templateItems.getElementById("id").innerHTML = `<p id="id" class="text-center text-yellow-400"><span class="text-start text-pink-100">ID </span>${user.id}</p>`
                 templateItems.getElementById("nombreUsuario").innerHTML = `<p id="nombreUsuario" class="text-center text-yellow-400"><span class="text-pink-100">NOMBRE </span>${user.nombre}</p>`
                 templateItems.getElementById("apellidoUsuario").innerHTML = `<p id="apellidoUsuario" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span>${user.apellido}</p>`
+                templateItems.getElementById("localidad").innerHTML = `<p id="localidad" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span>${user.domicilio.localidad}</p>`
                 templateItems.querySelector(".btn").dataset.id = user.id;
                 let clone = templateItems.cloneNode(true);
                 fragment.appendChild(clone);
@@ -166,8 +176,6 @@ function imprimirUsuarios(data){
 /* -------------------------------------------------------------------------- */
 /*                               ELIMINAR POR ID                              */
 /* -------------------------------------------------------------------------- */
-
-
 
 
 

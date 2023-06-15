@@ -31,6 +31,21 @@
                         <legend>Documento</legend>    
                         <label><input class="p-1 w-full outline-none text-rose-900" type="text" name="documento" id="documento" placeholder="Ingresa tu Documento"></label>
                     </fieldset>
+                    <fieldset class="border border-blue-950 text-blue-950 w-auto h-auto flex flex-row flex-wrap justify-between p-2">
+                        <legend>Domicilio</legend>
+                            <fieldset class="border focus-within:border-2 focus-within:font-medium border-blue-950 text-blue-950 w-full">
+                                <legend>Calle</legend>
+                                <label><input class="p-1 w-full outline-none text-rose-900" type="text" name="calle" id="calle" placeholder="Ingresa la Calle"></label>
+                            </fieldset>    
+                            <fieldset class="border focus-within:border-2 focus-within:font-medium border-blue-950 text-blue-950 w-7/12">
+                                <legend>Localidad</legend>
+                                <label><input class="p-1 w-full outline-none text-rose-900" type="text" name="localidad" id="localidad" placeholder="Ingresa la Localidad"></label>
+                            </fieldset>    
+                            <fieldset class="border focus-within:border-2 focus-within:font-medium border-blue-950 text-blue-950 w-2/5">
+                                <legend>Ciudad</legend>
+                                <label><input class="p-1 w-full outline-none text-rose-900" type="text" name="ciudad" id="ciudad" placeholder="Ingresa la Ciudad"></label>
+                            </fieldset>    
+                    </fieldset>
                     <button class="w-1/3 h-9 rounded-md hover:bg-blue-800 bg-blue-950 mt-5 text-pink-100 ml-auto mr-auto" type="submit">Agregar Usuario</button>
                 </div>
             </form>
@@ -47,15 +62,16 @@
                     <p id="id" class="text-center text-yellow-400"><span class="text-start text-pink-100">ID </span></p>
                     <p id="nombreUsuario" class="text-center text-yellow-400"><span class="text-pink-100">NOMBRE </span></p>
                     <p id="apellidoUsuario" class="text-center text-yellow-400"><span class="text-pink-100">APELLIDO </span></p>
+                    <p id="localidad" class="text-center text-yellow-400"><span class="text-pink-100">LOCALIDAD </span></p>
                     <div class="container flex flex-row-reverse">
-                        <button class="btn w-auto h-auto bg-slate-300 rounded-md p-2 m-3 align-middle text-sm">Eliminar</button>
-                        <button class="w-auto h-auto bg-slate-300 rounded-md p-2 m-3 align-middle text-sm">Modificar</button>
+                        <button class="btn w-auto h-auto bg-gradient-to-br  from-red-500 to-red-900 font-semibold text-white rounded-md p-3 m-3 align-middle text-sm">ELIMINAR</button>
+                        <button class="w-auto h-auto bg-green-800 text-white font-semibold rounded-md p-3 m-3 align-middle text-sm">MODIFICAR</button>
                     </div>
                 </article>
             </template>
             <template id="no-items">
-                <article>
-                    <p>
+                <article class="ml-auto mr-auto flex flex-row conteiner mt-20 w-auto h-auto bg-gradient-to-br from-red-500 to-red-900 rounded-lg p-3">
+                    <p class="text-lg text-white font-semibold p-2">
                         NO HAY USUARIOS EN LA BASE DE DATOS
                     </p>
                 </article>
